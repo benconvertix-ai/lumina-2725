@@ -35,10 +35,10 @@ export function HomeHero() {
           ))}
         </ul>
 
-        <div className="relative mx-auto mt-8 aspect-[3/1] w-full max-w-4xl overflow-hidden rounded-3xl shadow-2xl shadow-espresso/15">
+        <div className="relative mx-auto mt-8 aspect-[1024/482] w-full max-w-4xl overflow-hidden rounded-3xl shadow-2xl shadow-espresso/15">
           <Image
-            src="/images/hero-panuozzo.png"
-            alt="Panuozzo napoletano farcito con prosciutto crudo, mozzarella, pomodorini e rucola su tagliere"
+            src="/images/hero-panuozzo.jpg"
+            alt="Panuozzo napoletano farcito con prosciutto crudo, mozzarella, pomodori, rucola e scaglie di parmigiano su tagliere di legno con basilico"
             fill
             priority
             sizes="(min-width: 1024px) 896px, 100vw"
