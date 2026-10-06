@@ -37,6 +37,10 @@ const socials = [
   },
 ]
 
+const iconClass = 'mt-0.5 size-4 shrink-0 text-brand'
+const contactLinkClass =
+  'flex items-start gap-3 rounded-sm transition-colors hover:text-brand focus-visible:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40'
+
 function ColumnTitle({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-brand">{children}</h2>
@@ -71,21 +75,31 @@ export function Footer() {
 
         <div>
           <ColumnTitle>Contatti</ColumnTitle>
-          <ul className="space-y-3 text-sm text-muted-foreground">
+          <ul className="space-y-3 text-sm font-medium leading-relaxed text-muted-foreground">
             <li className="flex items-start gap-3">
-              <Building2 className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+              <Building2 className={iconClass} aria-hidden="true" />
               <span>
                 <span className="block font-semibold text-espresso">{company.name}</span>
                 <span className="block">P.IVA: {company.vat}</span>
               </span>
             </li>
-            <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
-              <span>{company.address}</span>
+            <li>
+              <a
+                href={company.mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={contactLinkClass}
+              >
+                <MapPin className={iconClass} aria-hidden="true" />
+                <span>
+                  {company.address}
+                  <span className="sr-only"> (apri in Google Maps, nuova scheda)</span>
+                </span>
+              </a>
             </li>
             <li>
-              <a href={company.phoneHref} className="flex items-start gap-3 hover:text-brand">
-                <Phone className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+              <a href={company.phoneHref} className={contactLinkClass}>
+                <Phone className={iconClass} aria-hidden="true" />
                 <span>
                   <span className="sr-only">Telefono / WhatsApp: </span>
                   {company.phoneDisplay}
@@ -93,15 +107,23 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href={company.emailHref} className="flex items-start gap-3 hover:text-brand">
-                <Mail className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+              <a href={company.emailHref} className={contactLinkClass}>
+                <Mail className={iconClass} aria-hidden="true" />
                 <span className="break-all">{company.email}</span>
               </a>
             </li>
             <li>
-              <a href={company.websiteHref} className="flex items-start gap-3 hover:text-brand">
-                <Globe className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
-                <span>{company.websiteDisplay}</span>
+              <a
+                href={company.websiteHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={contactLinkClass}
+              >
+                <Globe className={iconClass} aria-hidden="true" />
+                <span>
+                  {company.websiteDisplay}
+                  <span className="sr-only"> (nuova scheda)</span>
+                </span>
               </a>
             </li>
           </ul>

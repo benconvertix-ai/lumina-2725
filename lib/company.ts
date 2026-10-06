@@ -1,7 +1,9 @@
 export const company = {
   name: 'Società Duegi srl',
   address: 'Via Giulio Cesare 55, Somma Vesuviana, Napoli, 80049, Italia',
-  vat: '[Insert P.IVA here]',
+  mapsHref:
+    'https://maps.google.com/?q=Via+Giulio+Cesare+55,+Somma+Vesuviana,+Napoli,+80049,+Italia',
+  vat: '00000000000',
   phoneDisplay: '+39 370 164 4530',
   phoneHref: 'tel:+393701644530',
   email: 'info@ilpagnuozzo.com',

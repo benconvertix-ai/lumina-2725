@@ -6,7 +6,20 @@ const linkClass =
 export function ContactCard() {
   const rows: { label: string; value: React.ReactNode }[] = [
     { label: 'Titolare del trattamento', value: company.name },
-    { label: 'Sede legale', value: company.address },
+    {
+      label: 'Sede legale',
+      value: (
+        <a
+          href={company.mapsHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClass}
+        >
+          {company.address}
+          <span className="sr-only"> (apri in Google Maps, nuova scheda)</span>
+        </a>
+      ),
+    },
     { label: 'P.IVA', value: company.vat },
     {
       label: 'Telefono / WhatsApp',
@@ -27,8 +40,14 @@ export function ContactCard() {
     {
       label: 'Sito web',
       value: (
-        <a href={company.websiteHref} className={linkClass}>
+        <a
+          href={company.websiteHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClass}
+        >
           {company.websiteDisplay}
+          <span className="sr-only"> (nuova scheda)</span>
         </a>
       ),
     },
