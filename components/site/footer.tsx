@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Building2, Globe, Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { company, legalLinks } from '@/lib/company'
 import { LogoBadge } from './logo'
 import {
@@ -76,13 +76,6 @@ export function Footer() {
         <div>
           <ColumnTitle>Contatti</ColumnTitle>
           <ul className="space-y-3 text-sm font-medium leading-relaxed text-muted-foreground">
-            <li className="flex items-start gap-3">
-              <Building2 className={iconClass} aria-hidden="true" />
-              <span>
-                <span className="block font-semibold text-espresso">{company.name}</span>
-                <span className="block">P.IVA: {company.vat}</span>
-              </span>
-            </li>
             <li>
               <a
                 href={company.mapsHref}
@@ -110,20 +103,6 @@ export function Footer() {
               <a href={company.emailHref} className={contactLinkClass}>
                 <Mail className={iconClass} aria-hidden="true" />
                 <span className="break-all">{company.email}</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href={company.websiteHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={contactLinkClass}
-              >
-                <Globe className={iconClass} aria-hidden="true" />
-                <span>
-                  {company.websiteDisplay}
-                  <span className="sr-only"> (nuova scheda)</span>
-                </span>
               </a>
             </li>
           </ul>
