@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Building2, Globe, Mail, MapPin, Phone } from 'lucide-react'
+import { company, legalLinks } from '@/lib/company'
 import { LogoBadge } from './logo'
 import {
   FacebookIcon,
@@ -71,23 +72,36 @@ export function Footer() {
         <div>
           <ColumnTitle>Contatti</ColumnTitle>
           <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex items-center gap-3">
-              <MapPin className="size-4 shrink-0 text-brand" aria-hidden="true" />
-              Somma Vesuviana, Campania
+            <li className="flex items-start gap-3">
+              <Building2 className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+              <span>
+                <span className="block font-semibold text-espresso">{company.name}</span>
+                <span className="block">P.IVA: {company.vat}</span>
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+              <span>{company.address}</span>
             </li>
             <li>
-              <a href="tel:+393701644530" className="flex items-center gap-3 hover:text-brand">
-                <Phone className="size-4 shrink-0 text-brand" aria-hidden="true" />
-                +39 370 164 4530
+              <a href={company.phoneHref} className="flex items-start gap-3 hover:text-brand">
+                <Phone className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+                <span>
+                  <span className="sr-only">Telefono / WhatsApp: </span>
+                  {company.phoneDisplay}
+                </span>
               </a>
             </li>
             <li>
-              <a
-                href="mailto:info@ilpagnuozzo.com"
-                className="flex items-center gap-3 hover:text-brand"
-              >
-                <Mail className="size-4 shrink-0 text-brand" aria-hidden="true" />
-                info@ilpagnuozzo.com
+              <a href={company.emailHref} className="flex items-start gap-3 hover:text-brand">
+                <Mail className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+                <span className="break-all">{company.email}</span>
+              </a>
+            </li>
+            <li>
+              <a href={company.websiteHref} className="flex items-start gap-3 hover:text-brand">
+                <Globe className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden="true" />
+                <span>{company.websiteDisplay}</span>
               </a>
             </li>
           </ul>
@@ -129,13 +143,16 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>{'© 2026 Il Pagnuozzo – Tutti i diritti riservati'}</p>
-          <p className="flex flex-wrap gap-x-2">
-            <a href="#" className="hover:text-brand">Privacy Policy</a>
-            <span aria-hidden="true">·</span>
-            <a href="#" className="hover:text-brand">Cookie Policy</a>
-            <span aria-hidden="true">·</span>
-            <a href="#" className="hover:text-brand">Termini e condizioni</a>
-          </p>
+          <nav aria-label="Link legali" className="flex flex-wrap gap-x-2">
+            {legalLinks.map((link, i) => (
+              <span key={link.href} className="flex gap-x-2">
+                {i > 0 && <span aria-hidden="true">·</span>}
+                <Link href={link.href} className="hover:text-brand">
+                  {link.label}
+                </Link>
+              </span>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
