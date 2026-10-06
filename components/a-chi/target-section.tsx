@@ -34,14 +34,24 @@ const badges = [
 
 function SandwichImage({ className }: { className?: string }) {
   return (
-    <Image
-      src="/images/pagnuozzo-sandwich.png"
-      alt="Panuozzo farcito con bresaola, stracciatella, rucola e pomodorini"
-      width={671}
-      height={639}
-      sizes="(min-width: 1024px) 30vw, 45vw"
-      className={cn('h-auto w-full drop-shadow-[0_18px_18px_rgba(43,26,18,0.45)]', className)}
-    />
+    <div className={cn('flex w-full flex-col items-center', className)}>
+      <Image
+        src="/images/pagnuozzo-sandwich.png"
+        alt="Panuozzo farcito con bresaola, stracciatella, rucola e pomodorini, servito su un tagliere di legno"
+        width={671}
+        height={639}
+        sizes="(min-width: 1024px) 24vw, 45vw"
+        className="relative z-10 h-auto w-[80%] drop-shadow-[0_14px_10px_rgba(43,26,18,0.45)]"
+      />
+      <Image
+        src="/images/wood-board.png"
+        alt=""
+        width={1220}
+        height={478}
+        sizes="(min-width: 1024px) 30vw, 58vw"
+        className="relative -mt-[24%] h-auto w-full drop-shadow-[0_16px_14px_rgba(43,26,18,0.4)]"
+      />
+    </div>
   )
 }
 
@@ -146,9 +156,9 @@ export function TargetSection() {
             </div>
           </div>
 
-          <div className="flex items-end justify-between gap-4 lg:hidden">
-            <SandwichImage className="w-[58%] max-w-sm" />
-            <PackImage className="mb-4 w-[34%] max-w-[12rem]" />
+          <div className="flex items-end justify-between gap-3 pb-4 lg:hidden">
+            <SandwichImage className="w-[62%] max-w-sm" />
+            <PackImage className="mb-6 w-[32%] max-w-[12rem]" />
           </div>
         </div>
       </div>
